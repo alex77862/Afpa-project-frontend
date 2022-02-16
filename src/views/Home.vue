@@ -1,18 +1,36 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar/>
+    <div class="banner"></div>
+    <div class="order marginTop50 paddingTop25">
+      <router-link class="borderRadius5 bold" to="/Product">Passer commande</router-link>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Navbar
   }
 }
 </script>
+
+<style scoped>
+  .banner {
+    background-image: url('../assets/banner.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+
+  .order > a{
+    padding: 15px;
+    background: white;
+    text-decoration: none;
+    color: blue;
+  }
+</style>

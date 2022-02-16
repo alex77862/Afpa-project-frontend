@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Quintessential&display=swap');
+
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #292929;
+    color: white;
+}
+
+/* GLOBAL CLASSES */
+.margin0 {
+  margin: 0;
+}
+
+.marginTop0 {
+  margin-top: 0;
+}
+
+.marginTop25 {
+  margin-top: 25px;
+}
+
+.marginTop50 {
+  margin-top: 50px;
+}
+
+.marginTop75 {
+  margin-top: 75px;
+}
+
+.marginTop100 {
+  margin-top: 100px;
+}
+
+.marginRight0 {
+  margin-right: 0;
+}
+
+.marginRight25 {
+  margin-right: 25px;
+}
+
+.marginRight50 {
+  margin-right: 50px;
+}
+
+.marginBot0 {
+  margin-bottom: 0;
+}
+
+.marginBot25 {
+  margin-bottom: 25px;
+}
+
+.marginBot50 {
+  margin-bottom: 50px;
+}
+
+.marginLeft0 {
+  margin-left: 0;
+}
+
+.marginLeft25 {
+  margin-left: 25px;
+}
+
+.marginLeft50 {
+  margin-left: 50px;
+}
+
+.padding0 {
+  padding: 0;
+}
+
+.padding25 {
+  padding: 25px;
+}
+
+.paddingTop0 {
+  padding-top: 0;
+}
+
+.paddingTop25 {
+  padding-top: 25px;
+}
+
+.paddingTop50 {
+  padding-top: 50px;
+}
+
+.paddingRight0 {
+  padding-right: 0;
+}
+
+.paddingRight25 {
+  padding-right: 25px;
+}
+
+.paddingRight50 {
+  padding-right: 50px;
+}
+
+.paddingBot0 {
+  padding-bottom: 0;
+}
+.paddingBot25 {
+  padding-bottom: 25px;
+}
+
+.paddingBot50 {
+  padding-bottom: 50px;
+}
+
+.paddingLeft0 {
+  padding-left: 0;
+}
+
+.paddingLeft25 {
+  padding-left: 25px;
+}
+
+.paddingLeft50 {
+  padding-left: 50px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.alignItemsEnd {
+  align-items: flex-end;
+}
+
+.alignItemsStart {
+  align-items: flex-start;
+}
+
+.alignItemsStretch {
+  align-items: stretch;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.justifyContentEnd {
+  justify-content: flex-end;
+}
+
+.justifyContentStart {
+  justify-content: flex-start;
+}
+
+.justifyContentAround {
+  justify-content: space-around;
+}
+
+.justifyContentEvenly {
+  justify-content: space-evenly;
+}
+
+.justifyContentBetween {
+  justify-content: space-between;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.border1 {
+  border: 1px solid;
+}
+
+.borderRadius5 {
+  border-radius: 5px;
+}
+
+.circle {
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.textAlignCenter {
+  text-align: center;
+}
+
+.textAlignStart {
+  text-align: start;
+}
+
+.textAlignEnd {
+  text-align: end;
+}
+
+.height100 {
+  height: 100%;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.shadow {
+  border: 0;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.borderNone {
+  border: 0px;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.decorationNone {
+  text-decoration: none;
+}
