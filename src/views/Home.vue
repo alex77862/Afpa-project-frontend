@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
   .banner {
-    background-image: url('../assets/banner.jpeg');
+    background-image: url('../assets/banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     height: 80vh;
@@ -29,8 +29,8 @@ export default {
 
   .order > a{
     padding: 15px;
-    background: white;
+    background: #90da68;
     text-decoration: none;
-    color: blue;
+    color: #1a1a1a;
   }
 </style>

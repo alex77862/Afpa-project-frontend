@@ -1,20 +1,20 @@
 <template>
     <div>
         <Navbar />
-        <h2 class="marginTop100" style="color: white;">Admin</h2>
+        <h2 class="marginTop100" style="color: white;">Espace Admin</h2>
         <span v-if="articles.length == 0">Aucun article disponible</span>
 
         <!-- Get all datas -->
         <div class="flex justifyContentCenter flexWrap">
-            <div class="item borderRadius5" v-for="post in articles" :key="post.title">
-                <img class="borderRadius5" :src="post.imageUrl" />
+            <div class="item borderRadius5 flex flexColumn justifyContentBetween" v-for="post in articles" :key="post.title">
+                <img class="borderRadius5" :src="post.image_url" />
                 <div class="descriptionItem flex flexColumn justifyContentEnd">
                     <span class="bold">{{ post.title }}</span>
                     <span>{{ post.description }}</span>
                     <span>{{ post.price }} €</span>
                 </div>
                 <div class="buyItem flex alignItemsCenter justifyContentAround">
-                    <button class="borderRadius5 updateItem" @click="updateOne(post)">Modifier l'article</button>
+                    <button class="borderRadius5 updateItem" @click="setModalUpdate(post)">Modifier l'article</button>
                     <button class="borderRadius5 deleteItem" @click="deleteOne(post)">Supprimer l'article</button>
                 </div>
             </div>
@@ -25,13 +25,23 @@
             <button @click="callAddForm()" class="newArticle borderRadius5">Ajouter un article</button>
         </div>
 
-        <div v-if="showAddForm == true" class="flex justifyContentCenter">
+        <div v-if="showAddForm == true" class="flex justifyContentCenter marginBot50">
             <form @submit="createArticle" class="flex flexColumn">
                 <input v-model="title" placeholder="Titre de l'article" required />
+                <input v-model="image_url" placeholder="Url de l'image" required />
                 <input v-model="description" placeholder="Description de l'article" required />
                 <input v-model="price" type="number" placeholder="Prix de l'article" required />
-                <!-- <input v-model="imageUrl" placeholder="Url de l'image" required /> -->
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit">Créer l'article</button>
+            </form>
+        </div>
+
+        <div v-if="modalUpdate" class="flex justifyContentCenter marginBot50">
+            <form @submit="updateOne(update)" class="flex flexColumn">
+                <input v-model="update.title" placeholder="Titre de l'article" required />
+                <input v-model="update.image_url" placeholder="Url de l'image" required />
+                <input v-model="update.description" placeholder="Description de l'article" required />
+                <input v-model="update.price" type="number" placeholder="Prix de l'article" required />
+                <button class="btn btn-primary" type="submit">Modifier l'article</button>
             </form>
         </div>
     </div>
@@ -47,10 +57,12 @@
             return {
                 articles: [],
                 showAddForm: false,
+                modalUpdate: false,
                 title: '',
                 description: '',
                 price: '',
-                // imageUrl: '',
+                update: {},
+                image_url: '',
             }
         },
         methods: {
@@ -66,13 +78,13 @@
                 formulaire.title = this.title
                 formulaire.description = this.description
                 formulaire.price = this.price
-                formulaire.imgUrl = this.imgUrl
+                formulaire.image_url = this.image_url
 
                 axios.post('http://localhost:3000/api/stuff', {
                     formulaire
                 }).then((res) => {
-                  console.log(res)
-                  e.target.reset()
+                    console.log(res)
+                    e.target.reset()
                 }).catch(error => console.log(error));
 
                 setTimeout(function () {
@@ -80,7 +92,14 @@
                 }, 500);
             },
             updateOne(post) {
-                console.log(post);
+                event.preventDefault();
+                console.log('this.updateOne')
+                axios.put('http://localhost:3000/api/stuff/' + post._id, {
+                    data: post
+                });
+                 setTimeout(function () {
+                    location.reload();
+                }, 500);
             },
             deleteOne(post) {
                 axios.delete('http://localhost:3000/api/stuff/' + post._id);
@@ -95,9 +114,15 @@
                     this.showAddForm = true
                 }
             },
+            setModalUpdate(post){
+                this.modalUpdate = true
+                this.update = post
+                // this.updateOne(this.update)
+            }
         },
         mounted: function () {
             this.getDatas()
+            
         },
         components: {
             Navbar
@@ -124,7 +149,7 @@
 
     .item>img {
         width: 100%;
-        height: 70%;
+        height: 60%;
     }
 
     .item>.descriptionItem {
